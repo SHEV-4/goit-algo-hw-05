@@ -11,7 +11,16 @@ def input_error(func):
 
     return inner
 
+def parse_error(func):
+    def inner(user_input):
+        try:
+            return func(user_input)
+        except ValueError:
+            return None,None
 
+    return inner
+            
+@parse_error
 def parse_input(user_input):
     cmd, *args = user_input.split()
     cmd = cmd.strip().lower()
