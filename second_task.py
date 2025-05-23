@@ -10,7 +10,7 @@ def generator_numbers(text:str):
     # for word in text.split(' '):    
     #     if is_number(word):
     #         yield float(word)
-    regular_patern = r"\d+.\d+"
+    regular_patern = r" \d+.\d+ "
     number_list = re.findall(regular_patern,text)
     for number in number_list:
         yield float(number)
